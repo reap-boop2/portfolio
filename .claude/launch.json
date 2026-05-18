@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "portfolio",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["-e", "const http=require('http');const fs=require('fs');const path=require('path');http.createServer((req,res)=>{let f=req.url==='/'?'/portfolio.html':req.url;const p=path.join('/Users/Zhuanz/Desktop/claude',f);const e=path.extname(p);const t={'.html':'text/html','.js':'application/javascript','.css':'text/css','.png':'image/png','.mp4':'video/mp4'};fs.readFile(p,(err,d)=>{if(err){res.writeHead(404);res.end('Not found');return}res.writeHead(200,{'Content-Type':t[e]||'text/plain'});res.end(d)})}).listen(8080,()=>console.log('ok'))"],
+      "port": 8080
+    }
+  ]
+}
